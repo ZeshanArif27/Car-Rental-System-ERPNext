@@ -1,0 +1,20 @@
+{
+ "action": "Create Entry",
+ "action_label": "Skip",
+ "creation": "2024-06-21 22:43:49.873103",
+ "docstatus": 0,
+ "doctype": "Onboarding Step",
+ "idx": 0,
+ "is_complete": 0,
+ "is_single": 0,
+ "is_skipped": 0,
+ "modified": "2024-06-21 22:43:49.873103",
+ "modified_by": "Administrator",
+ "name": "Vehicle Registration",
+ "owner": "Administrator",
+ "reference_document": "Car Reservation",
+ "show_form_tour": 0,
+ "show_full_form": 0,
+ "title": "Vehicle Registration",
+ "validate_action": 1
+}

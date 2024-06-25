@@ -1,0 +1,74 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"c9XnoUHEJq\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Car Rental Service\",\"col\":12}},{\"id\":\"0ynhbNYNNL\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"wLGEyXZZ7L\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Vehicle Registered\",\"col\":4}},{\"id\":\"88myiyu44M\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"udDYzUznTg\",\"type\":\"card\",\"data\":{\"card_name\":\"Rental Services\",\"col\":4}}]",
+ "creation": "2024-06-21 04:33:24.054741",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "getting-started",
+ "idx": 0,
+ "indicator_color": "cyan",
+ "is_hidden": 0,
+ "label": "Car Rental Service",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reservations",
+   "link_count": 0,
+   "link_to": "Car Reservation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Rental Services",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Vehicle Registration",
+   "link_count": 0,
+   "link_to": "Vehicle Registration",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Car Reservation",
+   "link_count": 0,
+   "link_to": "Car Reservation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-06-23 20:43:26.797002",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Car Rental Service",
+ "number_cards": [
+  {
+   "label": "Vehicle Registered",
+   "number_card_name": "Vehicle Registered"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 3.0,
+ "shortcuts": [],
+ "title": "Car Rental Service"
+}

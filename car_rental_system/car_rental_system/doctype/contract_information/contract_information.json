@@ -1,0 +1,193 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-23 21:13:33.486906",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_information_section",
+  "customer_type",
+  "customer_name",
+  "driver_name",
+  "nationality",
+  "column_break_yzuj",
+  "id_front",
+  "preview_front",
+  "column_break_ymer",
+  "id_back",
+  "preview_back",
+  "national_identity_section",
+  "idcardnumber",
+  "dob",
+  "idcardexpiry",
+  "column_break_qgup",
+  "license",
+  "preview_license",
+  "international_license",
+  "international_preview",
+  "section_break_fnuh",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_fnuh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Contract Information",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer_information_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Information"
+  },
+  {
+   "default": "Resident",
+   "fieldname": "customer_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Customer Type",
+   "options": "Resident\nTourist",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Link",
+   "label": "Driver (If Requested)",
+   "link_filters": "[[\"Employee\",\"designation\",\"=\",\"Driver\"]]",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Link",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Nationality",
+   "options": "Country",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "id_front",
+   "fieldtype": "Attach Image",
+   "label": "National ID (Front)"
+  },
+  {
+   "fieldname": "preview_front",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "id_front"
+  },
+  {
+   "fieldname": "id_back",
+   "fieldtype": "Attach Image",
+   "label": "National ID (Back)"
+  },
+  {
+   "fieldname": "preview_back",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "id_back"
+  },
+  {
+   "fieldname": "column_break_qgup",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.customer_type == 'Resident';",
+   "fieldname": "license",
+   "fieldtype": "Attach Image",
+   "label": "Driver's License"
+  },
+  {
+   "depends_on": "eval: doc.customer_type == 'Resident';",
+   "fieldname": "preview_license",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "license"
+  },
+  {
+   "fieldname": "national_identity_section",
+   "fieldtype": "Section Break",
+   "label": "National Identity"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "idcardexpiry",
+   "fieldtype": "Date",
+   "label": "ID Card Expiry"
+  },
+  {
+   "fieldname": "idcardnumber",
+   "fieldtype": "Int",
+   "label": "Identity Card Number"
+  },
+  {
+   "depends_on": "eval: doc.customer_type == 'Tourist';",
+   "fieldname": "international_license",
+   "fieldtype": "Attach Image",
+   "label": "International Driver's License ",
+   "options": "international_license"
+  },
+  {
+   "depends_on": "eval: doc.customer_type == 'Tourist';",
+   "fieldname": "international_preview",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "license"
+  },
+  {
+   "fieldname": "column_break_yzuj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ymer",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-24 00:13:23.539013",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Contract Information",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

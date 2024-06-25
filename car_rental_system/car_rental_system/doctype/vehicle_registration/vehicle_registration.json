@@ -1,0 +1,277 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "VH.####",
+ "creation": "2024-06-22 22:36:57.000773",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_information_section",
+  "model_name",
+  "vehicle_manufacturer",
+  "vehicle_type",
+  "lisence_plate",
+  "fleet_manager",
+  "catalog_value",
+  "purchase_value",
+  "residual_value",
+  "column_break_djje",
+  "car_owner",
+  "owner_name",
+  "car_image",
+  "image_preview",
+  "model_information_section",
+  "seat_number",
+  "color_rhgh",
+  "chasis",
+  "column_break_vuck",
+  "door_number",
+  "model_year",
+  "immarticulation_date",
+  "details_section",
+  "odometer_unit",
+  "transmission",
+  "fuel_type",
+  "emissions",
+  "horsepower",
+  "horsepower_taxation",
+  "power",
+  "column_break_feyx",
+  "odometer_value",
+  "decription",
+  "section_break_fkrn",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_fkrn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Vehicle Registration",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "vehicle_information_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Information"
+  },
+  {
+   "fieldname": "model_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Model Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "vehicle_manufacturer",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Manufacturer",
+   "reqd": 1
+  },
+  {
+   "default": "Cars",
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "label": "Vehicle Type",
+   "options": "Cars\nBikes"
+  },
+  {
+   "fieldname": "lisence_plate",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lisence Plate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fleet_manager",
+   "fieldtype": "Link",
+   "label": "Fleet Manager",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "catalog_value",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Catalog Value (VAT inc)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purchase_value",
+   "fieldtype": "Int",
+   "label": "Purchase Value",
+   "reqd": 1
+  },
+  {
+   "fieldname": "residual_value",
+   "fieldtype": "Int",
+   "label": "Residual Value"
+  },
+  {
+   "fieldname": "column_break_djje",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "model_information_section",
+   "fieldtype": "Section Break",
+   "label": "Model Information"
+  },
+  {
+   "fieldname": "seat_number",
+   "fieldtype": "Int",
+   "label": "Number of Seats",
+   "reqd": 1
+  },
+  {
+   "fieldname": "color_rhgh",
+   "fieldtype": "Color"
+  },
+  {
+   "fieldname": "chasis",
+   "fieldtype": "Data",
+   "label": "Chasis Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vuck",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "door_number",
+   "fieldtype": "Int",
+   "label": "Number of Doors",
+   "reqd": 1
+  },
+  {
+   "fieldname": "model_year",
+   "fieldtype": "Int",
+   "label": "Model Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "immarticulation_date",
+   "fieldtype": "Date",
+   "label": "Immarticulation Date"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "default": "KM",
+   "fieldname": "odometer_unit",
+   "fieldtype": "Select",
+   "label": "Odometer Unit",
+   "options": "KM\nMI"
+  },
+  {
+   "default": "Manual",
+   "fieldname": "transmission",
+   "fieldtype": "Select",
+   "label": "Transmission",
+   "options": "Manual\nAutomatic"
+  },
+  {
+   "default": "Gasoline",
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "label": "Fuel Type",
+   "options": "Gasoline\nDiesel\nLPG\nElectric\nHubrid"
+  },
+  {
+   "fieldname": "emissions",
+   "fieldtype": "Int",
+   "label": "CO2 Emissions"
+  },
+  {
+   "fieldname": "horsepower",
+   "fieldtype": "Int",
+   "label": "Horsepower"
+  },
+  {
+   "fieldname": "horsepower_taxation",
+   "fieldtype": "Int",
+   "label": "Horsepower Taxation"
+  },
+  {
+   "fieldname": "power",
+   "fieldtype": "Int",
+   "label": "Power"
+  },
+  {
+   "fieldname": "column_break_feyx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "odometer_value",
+   "fieldtype": "Int",
+   "label": "Last Ododmeter Value"
+  },
+  {
+   "fieldname": "decription",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "image_preview",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "car_image"
+  },
+  {
+   "fieldname": "car_image",
+   "fieldtype": "Attach Image",
+   "label": "Upload Photo",
+   "reqd": 1
+  },
+  {
+   "default": "Company",
+   "fieldname": "car_owner",
+   "fieldtype": "Select",
+   "label": "Car Owner",
+   "options": "Company\nIndividual"
+  },
+  {
+   "depends_on": "eval: doc.car_owner == 'Individual';",
+   "fieldname": "owner_name",
+   "fieldtype": "Data",
+   "label": "Owner Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-24 00:02:32.066423",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Vehicle Registration",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
