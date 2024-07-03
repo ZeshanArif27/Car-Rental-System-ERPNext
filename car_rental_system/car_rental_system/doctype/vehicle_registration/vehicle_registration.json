@@ -11,7 +11,7 @@
   "model_name",
   "lisence_plate",
   "fleet_manager",
-  "catalog_value",
+  "purchase_value",
   "residual_value",
   "column_break_djje",
   "vehicle_manufacturer",
@@ -24,7 +24,7 @@
   "column_break_mdld",
   "percent",
   "column_break_gpgt",
-  "purchase_value",
+  "amount",
   "section_break_yklp",
   "purchase_details",
   "model_information_section",
@@ -87,8 +87,7 @@
    "fieldname": "lisence_plate",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "License Plate",
-   "reqd": 1
+   "label": "License Plate"
   },
   {
    "fieldname": "fleet_manager",
@@ -98,16 +97,6 @@
   },
   {
    "default": "0",
-   "fieldname": "catalog_value",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Catalog Value (VAT inc)",
-   "non_negative": 1,
-   "reqd": 1
-  },
-  {
-   "default": "0",
-   "depends_on": "eval: doc.car_owner != \"Investors\"",
    "fieldname": "purchase_value",
    "fieldtype": "Int",
    "label": "Purchase Value",
@@ -131,35 +120,33 @@
    "label": "Model Information"
   },
   {
+   "default": "2",
    "fieldname": "seat_number",
    "fieldtype": "Int",
    "label": "Number of Seats",
-   "non_negative": 1,
-   "reqd": 1
+   "non_negative": 1
   },
   {
    "fieldname": "chasis",
    "fieldtype": "Data",
-   "label": "Chasis Number",
-   "reqd": 1
+   "label": "Chasis Number"
   },
   {
    "fieldname": "column_break_vuck",
    "fieldtype": "Column Break"
   },
   {
+   "default": "2",
    "fieldname": "door_number",
    "fieldtype": "Int",
    "label": "Number of Doors",
-   "non_negative": 1,
-   "reqd": 1
+   "non_negative": 1
   },
   {
    "fieldname": "model_year",
    "fieldtype": "Int",
    "label": "Model Year",
-   "non_negative": 1,
-   "reqd": 1
+   "non_negative": 1
   },
   {
    "fieldname": "immarticulation_date",
@@ -244,8 +231,7 @@
   {
    "fieldname": "car_image",
    "fieldtype": "Attach Image",
-   "label": "Upload Photo",
-   "reqd": 1
+   "label": "Upload Photo"
   },
   {
    "default": "Company",
@@ -308,12 +294,22 @@
    "fieldtype": "Percent",
    "label": "Percent",
    "precision": "0"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.car_owner != \"Investors\"",
+   "fieldname": "amount",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Amount ",
+   "non_negative": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-02 19:19:03.864423",
+ "modified": "2024-07-03 19:40:34.180260",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Vehicle Registration",

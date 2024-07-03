@@ -6,26 +6,13 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "column_break_bhxw",
-  "investor_name",
+  "investor_id",
   "column_break_hdav",
   "inv_percentage",
   "column_break_jngt",
   "investment_amount"
  ],
  "fields": [
-  {
-   "depends_on": "eval: doc.company_investor == \"Investors\";",
-   "fieldname": "investor_name",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Investor Name",
-   "options": "Investors"
-  },
-  {
-   "fieldname": "column_break_bhxw",
-   "fieldtype": "Column Break"
-  },
   {
    "fieldname": "inv_percentage",
    "fieldtype": "Percent",
@@ -50,12 +37,21 @@
   {
    "fieldname": "column_break_jngt",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "investor_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Investor ID",
+   "options": "Investors",
+   "reqd": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-02 19:12:09.001846",
+ "modified": "2024-07-03 18:03:34.144311",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Vehicle Purchasing Detail",
