@@ -6,24 +6,31 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "vehicle_information_section",
   "model_name",
-  "vehicle_manufacturer",
-  "vehicle_type",
   "lisence_plate",
   "fleet_manager",
   "catalog_value",
-  "purchase_value",
   "residual_value",
   "column_break_djje",
-  "car_owner",
-  "owner_name",
+  "vehicle_manufacturer",
+  "insurance_no",
   "car_image",
   "image_preview",
+  "owner_name",
+  "vehicle_owner_infromation_section",
+  "car_owner",
+  "column_break_mdld",
+  "percent",
+  "column_break_gpgt",
+  "purchase_value",
+  "section_break_yklp",
+  "purchase_details",
   "model_information_section",
   "seat_number",
-  "color_rhgh",
   "chasis",
+  "color",
   "column_break_vuck",
   "door_number",
   "model_year",
@@ -77,17 +84,10 @@
    "reqd": 1
   },
   {
-   "default": "Cars",
-   "fieldname": "vehicle_type",
-   "fieldtype": "Select",
-   "label": "Vehicle Type",
-   "options": "Cars\nBikes"
-  },
-  {
    "fieldname": "lisence_plate",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Lisence Plate",
+   "label": "License Plate",
    "reqd": 1
   },
   {
@@ -97,22 +97,29 @@
    "options": "Employee"
   },
   {
+   "default": "0",
    "fieldname": "catalog_value",
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "Catalog Value (VAT inc)",
+   "non_negative": 1,
    "reqd": 1
   },
   {
+   "default": "0",
+   "depends_on": "eval: doc.car_owner != \"Investors\"",
    "fieldname": "purchase_value",
    "fieldtype": "Int",
    "label": "Purchase Value",
+   "non_negative": 1,
    "reqd": 1
   },
   {
+   "default": "0",
    "fieldname": "residual_value",
    "fieldtype": "Int",
-   "label": "Residual Value"
+   "label": "Residual Value",
+   "non_negative": 1
   },
   {
    "fieldname": "column_break_djje",
@@ -127,11 +134,8 @@
    "fieldname": "seat_number",
    "fieldtype": "Int",
    "label": "Number of Seats",
+   "non_negative": 1,
    "reqd": 1
-  },
-  {
-   "fieldname": "color_rhgh",
-   "fieldtype": "Color"
   },
   {
    "fieldname": "chasis",
@@ -147,12 +151,14 @@
    "fieldname": "door_number",
    "fieldtype": "Int",
    "label": "Number of Doors",
+   "non_negative": 1,
    "reqd": 1
   },
   {
    "fieldname": "model_year",
    "fieldtype": "Int",
    "label": "Model Year",
+   "non_negative": 1,
    "reqd": 1
   },
   {
@@ -187,24 +193,32 @@
    "options": "Gasoline\nDiesel\nLPG\nElectric\nHubrid"
   },
   {
+   "default": "0",
    "fieldname": "emissions",
    "fieldtype": "Int",
-   "label": "CO2 Emissions"
+   "label": "CO2 Emissions",
+   "non_negative": 1
   },
   {
+   "default": "0",
    "fieldname": "horsepower",
    "fieldtype": "Int",
-   "label": "Horsepower"
+   "label": "Horsepower",
+   "non_negative": 1
   },
   {
+   "default": "0",
    "fieldname": "horsepower_taxation",
    "fieldtype": "Int",
-   "label": "Horsepower Taxation"
+   "label": "Horsepower Taxation",
+   "non_negative": 1
   },
   {
+   "default": "0",
    "fieldname": "power",
    "fieldtype": "Int",
-   "label": "Power"
+   "label": "Power",
+   "non_negative": 1
   },
   {
    "fieldname": "column_break_feyx",
@@ -213,7 +227,8 @@
   {
    "fieldname": "odometer_value",
    "fieldtype": "Int",
-   "label": "Last Ododmeter Value"
+   "label": "Last Odometer Value",
+   "non_negative": 1
   },
   {
    "fieldname": "decription",
@@ -237,19 +252,68 @@
    "fieldname": "car_owner",
    "fieldtype": "Select",
    "label": "Car Owner",
-   "options": "Company\nIndividual"
+   "options": "Company\nInvestors\nBoth"
   },
   {
    "depends_on": "eval: doc.car_owner == 'Individual';",
    "fieldname": "owner_name",
    "fieldtype": "Data",
    "label": "Owner Name"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Vehicle Registration No",
+   "no_copy": 1,
+   "options": "VEH-REG-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "insurance_no",
+   "fieldtype": "Data",
+   "label": "Insurance No"
+  },
+  {
+   "fieldname": "vehicle_owner_infromation_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Owner Infromation"
+  },
+  {
+   "fieldname": "column_break_gpgt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_yklp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval: doc.car_owner != \"Company\";",
+   "fieldname": "purchase_details",
+   "fieldtype": "Table",
+   "label": "Purchase Details",
+   "options": "Vehicle Purchasing Detail"
+  },
+  {
+   "fieldname": "column_break_mdld",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.car_owner != \"Investors\"",
+   "fieldname": "percent",
+   "fieldtype": "Percent",
+   "label": "Percent",
+   "precision": "0"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-24 00:02:32.066423",
+ "modified": "2024-07-02 19:19:03.864423",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Vehicle Registration",
@@ -264,10 +328,21 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Administrator",
+   "select": 1,
    "share": 1,
    "submit": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1
   }
  ],
  "sort_field": "modified",

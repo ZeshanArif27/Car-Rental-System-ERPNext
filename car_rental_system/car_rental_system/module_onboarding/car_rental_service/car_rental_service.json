@@ -7,10 +7,10 @@
  "creation": "2024-06-21 22:44:15.439338",
  "docstatus": 0,
  "doctype": "Module Onboarding",
- "documentation_url": "",
+ "documentation_url": "https://frappeframework.com/docs/user/en/introduction",
  "idx": 0,
  "is_complete": 0,
- "modified": "2024-06-25 08:26:53.535075",
+ "modified": "2024-07-01 13:07:42.227541",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Car Rental Service",
@@ -18,6 +18,9 @@
  "steps": [
   {
    "step": "Vehicle Registration"
+  },
+  {
+   "step": "Contract Information"
   }
  ],
  "subtitle": "Brand, Manufacturers, Vehicle Registration, Car Reservstions",

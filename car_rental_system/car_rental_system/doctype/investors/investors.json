@@ -1,0 +1,130 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-07-02 12:15:42.964790",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "information_section",
+  "inv_name",
+  "inv_country",
+  "inv_dob",
+  "inv_profession",
+  "column_break_lclr",
+  "inv_gender",
+  "inv_phone",
+  "inv_email",
+  "total_investment",
+  "details_of_investment_section",
+  "inv_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "information_section",
+   "fieldtype": "Section Break",
+   "label": "Information"
+  },
+  {
+   "fieldname": "inv_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name"
+  },
+  {
+   "fieldname": "inv_country",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "inv_dob",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "inv_profession",
+   "fieldtype": "Data",
+   "label": "Profession"
+  },
+  {
+   "fieldname": "column_break_lclr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Male",
+   "fieldname": "inv_gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "Male\nFemale"
+  },
+  {
+   "fieldname": "inv_phone",
+   "fieldtype": "Phone",
+   "label": "Phone "
+  },
+  {
+   "fieldname": "inv_email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_investment",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Investment",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2"
+  },
+  {
+   "fieldname": "details_of_investment_section",
+   "fieldtype": "Section Break",
+   "label": "Details of Investment"
+  },
+  {
+   "fieldname": "inv_details",
+   "fieldtype": "Table",
+   "label": "Investments",
+   "options": "Investment Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Investor No",
+   "no_copy": 1,
+   "options": "INV-NUM-.YYYY.-",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-02 19:56:11.017969",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Investors",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

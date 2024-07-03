@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-07-02 13:00:29.918857",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "asset_no",
+  "naming_series",
+  "column_break_nhxr",
+  "asset_name",
+  "column_break_hwip",
+  "date_of_investment",
+  "column_break_vlcc",
+  "share_percentage",
+  "column_break_lhmi",
+  "amt_of_investment"
+ ],
+ "fields": [
+  {
+   "fetch_from": "asset_no.immarticulation_date",
+   "fieldname": "date_of_investment",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Investment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hwip",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Detail No",
+   "no_copy": 1,
+   "options": "INV-DET-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "asset_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Asset ID",
+   "link_filters": "[[\"Vehicle Registration\",\"car_owner\",\"=\",\"Investors\"],[\"Vehicle Registration\",\"car_owner\",\"=\",\"Both\"]]",
+   "options": "Vehicle Registration"
+  },
+  {
+   "fieldname": "column_break_nhxr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "asset_no.model_name",
+   "fieldname": "asset_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Asset Name",
+   "options": "Vehicle Registration"
+  },
+  {
+   "fieldname": "column_break_vlcc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "share_percentage",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Share Percentage ",
+   "non_negative": 1,
+   "options": "Vehicle Registration",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_lhmi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amt_of_investment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Amount of Investment",
+   "non_negative": 1,
+   "options": "Vehicle Registration",
+   "precision": "2"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-02 19:53:50.168179",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Investment Details",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

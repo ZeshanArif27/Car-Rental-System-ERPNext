@@ -1,32 +1,123 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
+ "autoname": "naming_series:",
  "creation": "2024-06-23 21:13:33.486906",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "contract_infromation_tab",
+  "contract_infromation_section",
+  "transaction_date",
+  "column_break_jbzr",
+  "naming_series",
+  "column_break_gduw",
+  "location",
   "customer_information_section",
   "customer_type",
-  "customer_name",
-  "driver_name",
   "nationality",
-  "column_break_yzuj",
-  "id_front",
-  "preview_front",
-  "column_break_ymer",
-  "id_back",
-  "preview_back",
-  "national_identity_section",
   "idcardnumber",
+  "id_front",
+  "id_back",
+  "column_break_xbqm",
+  "customer_name",
   "dob",
-  "idcardexpiry",
+  "id_issue_date",
+  "preview_front",
+  "column_break_pnad",
+  "name_of_hirer",
+  "phone",
+  "id_expiry_date",
+  "preview_back",
+  "drivers_tab",
+  "drivers_information_section",
+  "driving_license",
+  "primary_placeofissue",
+  "license_issue",
+  "license_expiry",
+  "column_break_rgnz",
+  "license_front",
+  "preview_license_front",
+  "column_break_fsjq",
+  "license_back",
+  "preview_license_back",
+  "secondary_drivers_information_section",
+  "column_break_hcpu",
+  "secondary_driver",
+  "secondary_driving_license",
+  "secondary_placeofissue",
+  "secondary_license_issue",
+  "secondary_license_expiry",
+  "column_break_jrpr",
+  "secondary_license_front",
+  "secondary_preview_front",
   "column_break_qgup",
-  "license",
-  "preview_license",
-  "international_license",
-  "international_preview",
+  "secondary_license_back",
+  "secondary_preview_back",
   "section_break_fnuh",
-  "amended_from"
+  "amended_from",
+  "details_tab",
+  "booking_details_section",
+  "booking_type",
+  "column_break_blpx",
+  "rate_as_per_booking_type",
+  "vehicle_information_section",
+  "vehicle_id",
+  "model",
+  "column_break_hujy",
+  "registration_no",
+  "color",
+  "out_details_section",
+  "out_datetime",
+  "fuel_guage_out",
+  "column_break_uxft",
+  "km_out",
+  "odometer_out",
+  "in_details_section",
+  "in_datetime",
+  "fuel_guage_in",
+  "column_break_qyht",
+  "km_in",
+  "odometer_in",
+  "extra_charges_section",
+  "extra_kms",
+  "column_break_ljjv",
+  "charges_per_extrakms",
+  "employee_details_section",
+  "openned_by",
+  "column_break_xjhi",
+  "closed_by",
+  "tab_5_tab",
+  "insurance",
+  "insurance_policy",
+  "section_break_uchx",
+  "terms_conditions_en",
+  "terms_en",
+  "column_break_jvvb",
+  "terms_conditions_ar",
+  "term_ar",
+  "section_break_wgxa",
+  "sign_incharge",
+  "column_break_lezp",
+  "sign_driver",
+  "column_break_thbh",
+  "sign_hirer",
+  "payment_details_tab",
+  "rent",
+  "fine_charges",
+  "salik_charges",
+  "total_extra_kms",
+  "column_break_sxsv",
+  "insurance_amt",
+  "damage_charges",
+  "vat",
+  "section_break_jchh",
+  "total_amt",
+  "column_break_mxra",
+  "paid_amt",
+  "column_break_urkd",
+  "balance"
  ],
  "fields": [
   {
@@ -62,14 +153,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Customer Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "driver_name",
-   "fieldtype": "Link",
-   "label": "Driver (If Requested)",
-   "link_filters": "[[\"Employee\",\"designation\",\"=\",\"Driver\"]]",
-   "options": "Employee"
+   "reqd": 1,
+   "translatable": 1
   },
   {
    "fieldname": "nationality",
@@ -102,29 +187,13 @@
    "fieldname": "preview_back",
    "fieldtype": "Image",
    "label": "Preview",
-   "options": "id_back"
+   "max_height": "10px",
+   "options": "id_back",
+   "width": "220px"
   },
   {
    "fieldname": "column_break_qgup",
    "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval: doc.customer_type == 'Resident';",
-   "fieldname": "license",
-   "fieldtype": "Attach Image",
-   "label": "Driver's License"
-  },
-  {
-   "depends_on": "eval: doc.customer_type == 'Resident';",
-   "fieldname": "preview_license",
-   "fieldtype": "Image",
-   "label": "Preview",
-   "options": "license"
-  },
-  {
-   "fieldname": "national_identity_section",
-   "fieldtype": "Section Break",
-   "label": "National Identity"
   },
   {
    "fieldname": "dob",
@@ -132,45 +201,552 @@
    "label": "Date of Birth"
   },
   {
-   "fieldname": "idcardexpiry",
-   "fieldtype": "Date",
-   "label": "ID Card Expiry"
-  },
-  {
    "fieldname": "idcardnumber",
    "fieldtype": "Int",
-   "label": "Identity Card Number"
+   "label": "ID / Passport No"
   },
   {
-   "depends_on": "eval: doc.customer_type == 'Tourist';",
-   "fieldname": "international_license",
+   "fieldname": "column_break_xbqm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "id_issue_date",
+   "fieldtype": "Date",
+   "label": "Issue Date"
+  },
+  {
+   "fieldname": "column_break_pnad",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "name_of_hirer",
+   "fieldtype": "Data",
+   "label": "Name of Hirer/Sponsor"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Phone",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "id_expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "drivers_information_section",
+   "fieldtype": "Section Break",
+   "label": "Drivers Information"
+  },
+  {
+   "fieldname": "driving_license",
+   "fieldtype": "Data",
+   "label": "Driving License"
+  },
+  {
+   "fieldname": "column_break_fsjq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "license_issue",
+   "fieldtype": "Date",
+   "label": "Issue Date"
+  },
+  {
+   "fieldname": "license_expiry",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "column_break_hcpu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "secondary_driver",
+   "fieldtype": "Data",
+   "label": "Secondary Driver"
+  },
+  {
+   "fieldname": "column_break_jrpr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "secondary_license_issue",
+   "fieldtype": "Date",
+   "label": "Issue Date"
+  },
+  {
+   "fieldname": "secondary_license_expiry",
+   "fieldtype": "Date",
+   "label": "Expiry Date "
+  },
+  {
+   "fieldname": "primary_placeofissue",
+   "fieldtype": "Link",
+   "label": "Place of Issue",
+   "options": "Country"
+  },
+  {
+   "fieldname": "secondary_placeofissue",
+   "fieldtype": "Link",
+   "label": "Place of Issue",
+   "options": "Country"
+  },
+  {
+   "fieldname": "secondary_drivers_information_section",
+   "fieldtype": "Section Break",
+   "label": "Secondary Driver's Information"
+  },
+  {
+   "fieldname": "column_break_rgnz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: doc.customer_type == 'Resident';",
+   "fieldname": "license_front",
    "fieldtype": "Attach Image",
-   "label": "International Driver's License ",
-   "options": "international_license"
+   "label": "Driver's License Front"
   },
   {
-   "depends_on": "eval: doc.customer_type == 'Tourist';",
-   "fieldname": "international_preview",
+   "depends_on": "eval: doc.customer_type == 'Resident';",
+   "fieldname": "license_back",
+   "fieldtype": "Attach Image",
+   "label": "Driver's License Back"
+  },
+  {
+   "fieldname": "preview_license_front",
    "fieldtype": "Image",
    "label": "Preview",
-   "options": "license"
+   "options": "license_front"
   },
   {
-   "fieldname": "column_break_yzuj",
+   "fieldname": "preview_license_back",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "license_back"
+  },
+  {
+   "fieldname": "secondary_driving_license",
+   "fieldtype": "Data",
+   "label": "Driving License"
+  },
+  {
+   "fieldname": "secondary_license_front",
+   "fieldtype": "Attach Image",
+   "label": "Driver's License Front"
+  },
+  {
+   "fieldname": "secondary_preview_front",
+   "fieldtype": "Image",
+   "label": "Preview ",
+   "options": "secondary_license_front"
+  },
+  {
+   "fieldname": "secondary_license_back",
+   "fieldtype": "Attach Image",
+   "label": "Driver's License Back"
+  },
+  {
+   "fieldname": "secondary_preview_back",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "secondary_license_back"
+  },
+  {
+   "fieldname": "contract_infromation_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Agreement No",
+   "no_copy": 1,
+   "options": "AG-EM-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_jbzr",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_ymer",
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Transaction Date",
+   "no_copy": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gduw",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Location",
+   "options": "Branch",
+   "print_hide": 1,
+   "print_width": "150px",
+   "read_only": 1,
+   "remember_last_selected_value": 1,
+   "width": "150px"
+  },
+  {
+   "fieldname": "contract_infromation_tab",
+   "fieldtype": "Tab Break",
+   "label": "Contract Infromation"
+  },
+  {
+   "fieldname": "drivers_tab",
+   "fieldtype": "Tab Break",
+   "label": "Driver's"
+  },
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "vehicle_information_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Information"
+  },
+  {
+   "fieldname": "vehicle_id",
+   "fieldtype": "Link",
+   "label": "Vehicle ID",
+   "options": "Vehicle Registration"
+  },
+  {
+   "fetch_from": "vehicle_id.model_name",
+   "fieldname": "model",
+   "fieldtype": "Link",
+   "label": "Model",
+   "options": "Vehicle Registration"
+  },
+  {
+   "fieldname": "column_break_hujy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "vehicle_id.lisence_plate",
+   "fieldname": "registration_no",
+   "fieldtype": "Link",
+   "label": "Registartion Number",
+   "options": "Vehicle Registration"
+  },
+  {
+   "fetch_from": "vehicle_id.color",
+   "fieldname": "color",
+   "fieldtype": "Link",
+   "label": "Color",
+   "options": "Vehicle Registration"
+  },
+  {
+   "fieldname": "out_details_section",
+   "fieldtype": "Section Break",
+   "label": "Out Details"
+  },
+  {
+   "fieldname": "out_datetime",
+   "fieldtype": "Datetime",
+   "label": "Out (Date/Time)"
+  },
+  {
+   "fieldname": "column_break_uxft",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "km_out",
+   "fieldtype": "Int",
+   "label": "Km Out",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "in_details_section",
+   "fieldtype": "Section Break",
+   "label": "In Details "
+  },
+  {
+   "fieldname": "in_datetime",
+   "fieldtype": "Datetime",
+   "label": "In (Date/Time)"
+  },
+  {
+   "fieldname": "column_break_qyht",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "km_in",
+   "fieldtype": "Int",
+   "label": "Km Out ",
+   "non_negative": 1
+  },
+  {
+   "default": "Full",
+   "fieldname": "fuel_guage_out",
+   "fieldtype": "Select",
+   "label": "Fuel Guage",
+   "options": "Empty\n1/4\n1/2\n1/3\nFull"
+  },
+  {
+   "fieldname": "odometer_out",
+   "fieldtype": "Int",
+   "label": "Odometer Value"
+  },
+  {
+   "default": "Full",
+   "fieldname": "fuel_guage_in",
+   "fieldtype": "Select",
+   "label": "Fuel Guage ",
+   "options": "Empty\n1/4\n1/2\n1/3\nFull"
+  },
+  {
+   "fieldname": "odometer_in",
+   "fieldtype": "Int",
+   "label": "Odometer Value "
+  },
+  {
+   "fieldname": "employee_details_section",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "fieldname": "openned_by",
+   "fieldtype": "Link",
+   "label": "Openned By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_xjhi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "closed_by",
+   "fieldtype": "Link",
+   "label": "Closed By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "extra_charges_section",
+   "fieldtype": "Section Break",
+   "label": "Extra charges"
+  },
+  {
+   "fieldname": "extra_kms",
+   "fieldtype": "Int",
+   "label": "Extra KMs"
+  },
+  {
+   "fieldname": "column_break_ljjv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "charges_per_extrakms",
+   "fieldtype": "Float",
+   "label": "Charges Per Extra Kms"
+  },
+  {
+   "fieldname": "payment_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Payment Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "rent",
+   "fieldtype": "Float",
+   "label": "Car Rent",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "fine_charges",
+   "fieldtype": "Float",
+   "label": "Fine Charges",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "salik_charges",
+   "fieldtype": "Float",
+   "label": "Salik Charges",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_extra_kms",
+   "fieldtype": "Float",
+   "label": "Extra KMs Charges",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_sxsv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insurance",
+   "fieldtype": "Link",
+   "label": "Insurance Policy",
+   "options": "Terms and Conditions"
+  },
+  {
+   "default": "0",
+   "fieldname": "damage_charges",
+   "fieldtype": "Float",
+   "label": "Damage Charges",
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "vat",
+   "fieldtype": "Float",
+   "label": "VAT 5%",
+   "precision": "2"
+  },
+  {
+   "fieldname": "section_break_jchh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_amt",
+   "fieldtype": "Float",
+   "label": "Total Amount",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mxra",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "paid_amt",
+   "fieldtype": "Float",
+   "label": "Paid Amount",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_urkd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "booking_details_section",
+   "fieldtype": "Section Break",
+   "label": "Booking Details"
+  },
+  {
+   "default": "Daily",
+   "fieldname": "booking_type",
+   "fieldtype": "Select",
+   "label": "Booking Type",
+   "options": "Hourly\nDaily\nWeekly\nMonthly\nYearly"
+  },
+  {
+   "fieldname": "column_break_blpx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate_as_per_booking_type",
+   "fieldtype": "Float",
+   "label": "Rate as per Booking Type"
+  },
+  {
+   "default": "0",
+   "fieldname": "balance",
+   "fieldtype": "Float",
+   "label": "Balance Amount",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "insurance_amt",
+   "fieldtype": "Float",
+   "label": "Insurance ",
+   "precision": "2"
+  },
+  {
+   "fieldname": "tab_5_tab",
+   "fieldtype": "Tab Break",
+   "label": "Terms & Conditions"
+  },
+  {
+   "fetch_from": "insurance.terms",
+   "fieldname": "insurance_policy",
+   "fieldtype": "Text Editor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_uchx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "terms_conditions_en",
+   "fieldtype": "Link",
+   "label": "Terms and Conditions (EN)",
+   "options": "Terms and Conditions"
+  },
+  {
+   "fieldname": "column_break_jvvb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "terms_conditions_ar",
+   "fieldtype": "Link",
+   "label": "(AR) \u0627\u0644\u0634\u0631\u0648\u0637 \u0648\u0627\u0644\u0623\u062d\u0643\u0627\u0645",
+   "options": "Terms and Conditions"
+  },
+  {
+   "fetch_from": "terms_conditions_en.terms",
+   "fieldname": "terms_en",
+   "fieldtype": "Text Editor",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "terms_conditions_ar.terms",
+   "fieldname": "term_ar",
+   "fieldtype": "Text Editor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_wgxa",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sign_incharge",
+   "fieldtype": "Signature",
+   "label": "Sign Office Incharge"
+  },
+  {
+   "fieldname": "column_break_lezp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sign_driver",
+   "fieldtype": "Signature",
+   "label": "Sign of Driver"
+  },
+  {
+   "fieldname": "column_break_thbh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sign_hirer",
+   "fieldtype": "Signature",
+   "label": "Sign Hirer & Sponser"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-06-24 00:13:23.539013",
+ "make_attachments_public": 1,
+ "modified": "2024-07-02 11:47:03.481307",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Contract Information",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -185,9 +761,22 @@
    "share": 1,
    "submit": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
   }
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1
 }

@@ -1,6 +1,11 @@
 {
- "charts": [],
- "content": "[{\"id\":\"c9XnoUHEJq\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Car Rental Service\",\"col\":12}},{\"id\":\"0ynhbNYNNL\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"wLGEyXZZ7L\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Vehicle Registered\",\"col\":4}},{\"id\":\"88myiyu44M\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"udDYzUznTg\",\"type\":\"card\",\"data\":{\"card_name\":\"Rental Services\",\"col\":4}}]",
+ "charts": [
+  {
+   "chart_name": "Contracts",
+   "label": "Number of Contracts"
+  }
+ ],
+ "content": "[{\"id\":\"c9XnoUHEJq\",\"type\":\"onboarding\",\"data\":{\"onboarding_name\":\"Car Rental Service\",\"col\":12}},{\"id\":\"jZ61FaX9EV\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Number of Contracts\",\"col\":12}},{\"id\":\"wLGEyXZZ7L\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Vehicle Registered\",\"col\":4}},{\"id\":\"QRM--RslVz\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Contract Signed\",\"col\":4}},{\"id\":\"88myiyu44M\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"udDYzUznTg\",\"type\":\"card\",\"data\":{\"card_name\":\"Rental Services\",\"col\":4}}]",
  "creation": "2024-06-21 04:33:24.054741",
  "custom_blocks": [],
  "docstatus": 0,
@@ -45,15 +50,15 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Car Reservation",
+   "label": "Contract Information ",
    "link_count": 0,
-   "link_to": "Car Reservation",
+   "link_to": "Contract Information",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2024-06-23 20:43:26.797002",
+ "modified": "2024-07-01 13:12:15.029624",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Car Rental Service",
@@ -61,6 +66,10 @@
   {
    "label": "Vehicle Registered",
    "number_card_name": "Vehicle Registered"
+  },
+  {
+   "label": "Contract Signed",
+   "number_card_name": "Contracts Signed"
   }
  ],
  "owner": "Administrator",
