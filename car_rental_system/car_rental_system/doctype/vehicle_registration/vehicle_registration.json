@@ -234,11 +234,10 @@
    "label": "Upload Photo"
   },
   {
-   "default": "Company",
    "fieldname": "car_owner",
    "fieldtype": "Select",
    "label": "Car Owner",
-   "options": "Company\nInvestors\nBoth"
+   "options": "\nCompany\nInvestors\nBoth"
   },
   {
    "depends_on": "eval: doc.car_owner == 'Individual';",
@@ -309,7 +308,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-03 19:40:34.180260",
+ "modified": "2024-07-04 12:15:18.588291",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Vehicle Registration",
