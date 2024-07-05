@@ -1,24 +1,30 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "VH.####",
+ "autoname": "naming_series:",
  "creation": "2024-06-22 22:36:57.000773",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
+  "column_break_uola",
+  "vehicle_status",
   "vehicle_information_section",
   "model_name",
   "lisence_plate",
   "fleet_manager",
-  "purchase_value",
-  "residual_value",
+  "vehicle_class",
+  "is_insured",
   "column_break_djje",
   "vehicle_manufacturer",
-  "insurance_no",
   "car_image",
   "image_preview",
-  "owner_name",
+  "insurance_details_section",
+  "insurance_company",
+  "insurance_start",
+  "column_break_zbwk",
+  "insurance_no",
+  "insurance_date",
   "vehicle_owner_infromation_section",
   "car_owner",
   "column_break_mdld",
@@ -30,22 +36,28 @@
   "model_information_section",
   "seat_number",
   "chasis",
+  "registration_date",
   "color",
   "column_break_vuck",
   "door_number",
   "model_year",
-  "immarticulation_date",
+  "expiry_date",
   "details_section",
   "odometer_unit",
   "transmission",
   "fuel_type",
   "emissions",
   "horsepower",
-  "horsepower_taxation",
-  "power",
+  "torque",
   "column_break_feyx",
   "odometer_value",
   "decription",
+  "depreciation_details_section",
+  "purchase_date",
+  "depreciation_in_month",
+  "column_break_rejj",
+  "purchase_value",
+  "depreciation_value",
   "section_break_fkrn",
   "amended_from"
  ],
@@ -98,17 +110,11 @@
   {
    "default": "0",
    "fieldname": "purchase_value",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Purchase Value",
    "non_negative": 1,
+   "precision": "2",
    "reqd": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "residual_value",
-   "fieldtype": "Int",
-   "label": "Residual Value",
-   "non_negative": 1
   },
   {
    "fieldname": "column_break_djje",
@@ -147,11 +153,6 @@
    "fieldtype": "Int",
    "label": "Model Year",
    "non_negative": 1
-  },
-  {
-   "fieldname": "immarticulation_date",
-   "fieldtype": "Date",
-   "label": "Immarticulation Date"
   },
   {
    "fieldname": "details_section",
@@ -194,27 +195,13 @@
    "non_negative": 1
   },
   {
-   "default": "0",
-   "fieldname": "horsepower_taxation",
-   "fieldtype": "Int",
-   "label": "Horsepower Taxation",
-   "non_negative": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "power",
-   "fieldtype": "Int",
-   "label": "Power",
-   "non_negative": 1
-  },
-  {
    "fieldname": "column_break_feyx",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "odometer_value",
    "fieldtype": "Int",
-   "label": "Last Odometer Value",
+   "label": "Odometer Value",
    "non_negative": 1
   },
   {
@@ -238,12 +225,6 @@
    "fieldtype": "Select",
    "label": "Car Owner",
    "options": "\nCompany\nInvestors\nBoth"
-  },
-  {
-   "depends_on": "eval: doc.car_owner == 'Individual';",
-   "fieldname": "owner_name",
-   "fieldtype": "Data",
-   "label": "Owner Name"
   },
   {
    "fieldname": "color",
@@ -303,16 +284,113 @@
    "label": "Amount ",
    "non_negative": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "registration_date",
+   "fieldtype": "Date",
+   "label": "Registration Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_insured",
+   "fieldtype": "Check",
+   "label": "Is Insured?"
+  },
+  {
+   "depends_on": "eval: doc.is_insured == 1",
+   "fieldname": "insurance_details_section",
+   "fieldtype": "Section Break",
+   "label": "Insurance Details"
+  },
+  {
+   "fieldname": "insurance_company",
+   "fieldtype": "Data",
+   "label": "Insuarnce Company"
+  },
+  {
+   "fieldname": "insurance_start",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "column_break_zbwk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insurance_date",
+   "fieldtype": "Date",
+   "label": "End Date "
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "vehicle_class",
+   "fieldtype": "Select",
+   "label": "Vehicle Class",
+   "non_negative": 1,
+   "options": "Light Weight\nHeavy Weight"
+  },
+  {
+   "default": "0",
+   "fieldname": "depreciation_in_month",
+   "fieldtype": "Int",
+   "label": "Depreciation (In Months)",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "depreciation_value",
+   "fieldtype": "Float",
+   "label": "Depreciation Value",
+   "non_negative": 1,
+   "precision": "2",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_uola",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vehicle_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nInactive\nDirty\nAvailable"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "depreciation_details_section",
+   "fieldtype": "Section Break",
+   "label": "Depreciation Details"
+  },
+  {
+   "fieldname": "column_break_rejj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "torque",
+   "fieldtype": "Int",
+   "label": "Torque",
+   "non_negative": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-07-04 12:15:18.588291",
+ "modified": "2024-07-05 18:36:28.773281",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Vehicle Registration",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {

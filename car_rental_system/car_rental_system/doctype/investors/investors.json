@@ -80,7 +80,8 @@
    "label": "Total Investment",
    "non_negative": 1,
    "options": "Company:company:default_currency",
-   "precision": "2"
+   "precision": "2",
+   "read_only": 1
   },
   {
    "fieldname": "details_of_investment_section",
@@ -104,7 +105,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-02 19:56:11.017969",
+ "modified": "2024-07-05 11:39:51.044764",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Investors",
