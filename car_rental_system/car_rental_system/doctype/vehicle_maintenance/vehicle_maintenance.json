@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-07-09 11:51:44.435813",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "section_break_etxn",
+  "vehicle",
+  "maintenance_type",
+  "maintenance_start",
+  "priority",
+  "column_break_mika",
+  "status",
+  "current_odometer",
+  "maintenance_end",
+  "section_break_zeoj",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Maintenance No",
+   "options": "MAN-.NO-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_etxn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "maintenance_type",
+   "fieldtype": "Link",
+   "label": "Maintenance Type",
+   "options": "Maintenance Type"
+  },
+  {
+   "fieldname": "maintenance_start",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "column_break_mika",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority Level",
+   "options": "\nHigh\nMedium\nLow"
+  },
+  {
+   "fieldname": "maintenance_end",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "section_break_zeoj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "link_filters": "[[\"Vehicle Registration\",\"vehicle_status\",\"=\",\"Available\"]]",
+   "options": "Vehicle Registration"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nIn Prgress\nCompleted"
+  },
+  {
+   "fieldname": "current_odometer",
+   "fieldtype": "Int",
+   "label": "Current Odometer (KM)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-09 14:51:44.354285",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Vehicle Maintenance",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

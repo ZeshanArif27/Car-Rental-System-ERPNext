@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-08 17:10:49.449554",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "season_section",
+  "season_name",
+  "season_start_date",
+  "season_end_date",
+  "season_hourly_rate",
+  "season_daily_rate",
+  "season_weekly_rate",
+  "season_monthly_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "season_section",
+   "fieldtype": "Section Break",
+   "label": "season"
+  },
+  {
+   "fieldname": "season_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name"
+  },
+  {
+   "fieldname": "season_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "season_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date"
+  },
+  {
+   "fieldname": "season_hourly_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Hourly Rate"
+  },
+  {
+   "fieldname": "season_daily_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Daily Rate"
+  },
+  {
+   "fieldname": "season_weekly_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Weekly Rate"
+  },
+  {
+   "fieldname": "season_monthly_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Monthly Rate"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-08 17:53:59.350434",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Seasons",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

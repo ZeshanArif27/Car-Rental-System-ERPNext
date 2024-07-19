@@ -1,0 +1,168 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "VEH-.CLASS-.####",
+ "creation": "2024-07-12 16:46:45.640820",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_section",
+  "class_name",
+  "class_branch",
+  "column_break_zwzc",
+  "class_logo",
+  "has_season",
+  "class_active",
+  "feature_list_section",
+  "features",
+  "season_section",
+  "season_details",
+  "default_rates_section",
+  "hourly_rate",
+  "column_break_acyg",
+  "daily_rate",
+  "column_break_dtdh",
+  "weeky_rate",
+  "column_break_qgfl",
+  "monthly_rate"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "default": "1",
+   "fieldname": "has_season",
+   "fieldtype": "Check",
+   "label": "Have Seasons?"
+  },
+  {
+   "fieldname": "column_break_zwzc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "class_branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "default": "0",
+   "fieldname": "class_active",
+   "fieldtype": "Check",
+   "label": "Is Active?"
+  },
+  {
+   "fieldname": "feature_list_section",
+   "fieldtype": "Section Break",
+   "label": "Feature List"
+  },
+  {
+   "fieldname": "features",
+   "fieldtype": "Table",
+   "options": "Features"
+  },
+  {
+   "depends_on": "eval: doc.has_season == 1",
+   "fieldname": "season_section",
+   "fieldtype": "Section Break",
+   "label": "Season"
+  },
+  {
+   "fieldname": "season_details",
+   "fieldtype": "Table",
+   "label": "Season & Rate Details",
+   "options": "Seasons"
+  },
+  {
+   "depends_on": "eval: doc.has_season == 0",
+   "fieldname": "default_rates_section",
+   "fieldtype": "Section Break",
+   "label": "Default Rates"
+  },
+  {
+   "fieldname": "hourly_rate",
+   "fieldtype": "Currency",
+   "label": "Hourly Rate",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_acyg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "daily_rate",
+   "fieldtype": "Currency",
+   "label": "Daily Rate",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_dtdh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weeky_rate",
+   "fieldtype": "Currency",
+   "label": "Weekly Rate",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_qgfl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "monthly_rate",
+   "fieldtype": "Currency",
+   "label": "Monthly Rate ",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "class_logo",
+   "fieldtype": "Attach Image",
+   "label": "Class Logo"
+  },
+  {
+   "fieldname": "class_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
+  }
+ ],
+ "image_field": "class_logo",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-12 16:50:31.995487",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Vehicle Class",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "class_name, class_branch",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "class_name"
+}

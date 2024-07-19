@@ -1,0 +1,251 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "CUST-NO-.#####",
+ "creation": "2024-07-11 11:12:03.179329",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_infromation_section",
+  "customer_type",
+  "email",
+  "country",
+  "state",
+  "dob",
+  "license_number",
+  "int_license_number",
+  "column_break_ofhl",
+  "customer_name",
+  "address",
+  "city",
+  "zip_code",
+  "phone",
+  "dl_expiry_date",
+  "int_dl_expiry_date",
+  "idendtity_section",
+  "id_card_front",
+  "preview_front",
+  "column_break_pjps",
+  "id_card_back",
+  "preview_back",
+  "license_section",
+  "dl_img_front",
+  "preview_dl_img_front",
+  "column_break_xlct",
+  "dl_img_back",
+  "preview_dl_img_back",
+  "international_license_section",
+  "int_dl_img_front",
+  "preview_int_dl_img_front",
+  "column_break_jogi",
+  "int_dl_img_back",
+  "preview_int_dl_img_back"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_infromation_section",
+   "fieldtype": "Section Break",
+   "label": "General Infromation"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Phone",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "column_break_ofhl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "zip_code",
+   "fieldtype": "Int",
+   "label": "Zip Code"
+  },
+  {
+   "fieldname": "license_number",
+   "fieldtype": "Data",
+   "label": "Driver's License Number"
+  },
+  {
+   "fieldname": "dl_expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiration Date"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date Of Birth"
+  },
+  {
+   "fieldname": "customer_type",
+   "fieldtype": "Select",
+   "label": "Customer Type",
+   "options": "Resident\nTourist"
+  },
+  {
+   "fieldname": "idendtity_section",
+   "fieldtype": "Section Break",
+   "label": "Idendtity"
+  },
+  {
+   "fieldname": "id_card_front",
+   "fieldtype": "Attach",
+   "label": "Identity Card Front"
+  },
+  {
+   "fieldname": "preview_front",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "id_card_front"
+  },
+  {
+   "fieldname": "column_break_pjps",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "id_card_back",
+   "fieldtype": "Attach Image",
+   "label": "Identity Card Back"
+  },
+  {
+   "fieldname": "preview_back",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "id_card_back"
+  },
+  {
+   "depends_on": "eval: doc.customer_type == 'Tourist'",
+   "fieldname": "int_license_number",
+   "fieldtype": "Data",
+   "label": "International Driver's License Number"
+  },
+  {
+   "depends_on": "eval: doc.customer_type == 'Tourist'",
+   "fieldname": "int_dl_expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiration Date"
+  },
+  {
+   "fieldname": "license_section",
+   "fieldtype": "Section Break",
+   "label": "License"
+  },
+  {
+   "fieldname": "dl_img_front",
+   "fieldtype": "Attach Image",
+   "label": "Driver's License Front"
+  },
+  {
+   "fieldname": "preview_dl_img_front",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "dl_img_front"
+  },
+  {
+   "fieldname": "column_break_xlct",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dl_img_back",
+   "fieldtype": "Attach Image",
+   "label": "Driver's License Back"
+  },
+  {
+   "fieldname": "preview_dl_img_back",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "dl_img_back"
+  },
+  {
+   "depends_on": "eval: doc.customer_type == 'Tourist'",
+   "fieldname": "international_license_section",
+   "fieldtype": "Section Break",
+   "label": "International License"
+  },
+  {
+   "fieldname": "int_dl_img_front",
+   "fieldtype": "Attach Image",
+   "label": "International Driver's License Front"
+  },
+  {
+   "fieldname": "preview_int_dl_img_front",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "int_dl_img_front"
+  },
+  {
+   "fieldname": "column_break_jogi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "int_dl_img_back",
+   "fieldtype": "Attach Image",
+   "label": "International Driver's License Back"
+  },
+  {
+   "fieldname": "preview_int_dl_img_back",
+   "fieldtype": "Image",
+   "label": "Preview Copy",
+   "options": "int_dl_img_back"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-16 13:42:37.249928",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Customer Registration",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "customer_name",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "customer_name"
+}

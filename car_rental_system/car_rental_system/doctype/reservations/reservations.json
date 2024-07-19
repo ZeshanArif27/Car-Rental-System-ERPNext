@@ -1,0 +1,698 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "RES-.NO-.####",
+ "creation": "2024-07-18 12:02:29.167877",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "details_tab",
+  "booking_series",
+  "column_break_olcj",
+  "status",
+  "section_break_fwmi",
+  "customer_name",
+  "booking_type",
+  "booking_date_from",
+  "column_break_czmq",
+  "additional_driver",
+  "vehicle_class",
+  "booking_date_to",
+  "section_break_oyci",
+  "vehicle",
+  "image",
+  "column_break_umjd",
+  "preview",
+  "section_break_zcdk",
+  "vehicle_rates",
+  "section_break_yzlz",
+  "features",
+  "section_break_zwij",
+  "amended_from",
+  "customer_details_tab",
+  "customer_details_section",
+  "name1",
+  "phone",
+  "country",
+  "city",
+  "dob",
+  "expiration_date",
+  "column_break_jvhr",
+  "email",
+  "address",
+  "state",
+  "zip_code",
+  "license_number",
+  "driver_details_section",
+  "driver_name",
+  "column_break_vmyy",
+  "additional_license_number",
+  "column_break_qyek",
+  "expiry",
+  "dropoff_pickup_tab",
+  "dropoff_section",
+  "employee_dropoff",
+  "dropoff_date",
+  "odometer_dropoff",
+  "column_break_bljc",
+  "dropoff_location",
+  "dropoff_time",
+  "fuel_dropoff",
+  "pickup_section",
+  "pickup_employee",
+  "pickup_date",
+  "odometer_pickup",
+  "column_break_vodv",
+  "pickup_location",
+  "pickup_time",
+  "fuel_level_pickup",
+  "payment_details_tab",
+  "car_rent",
+  "security_deposit",
+  "column_break_bdar",
+  "insurance",
+  "payment_details",
+  "fine_charges",
+  "salik_charges",
+  "column_break_mglx",
+  "damage_charges",
+  "extra_km_charges",
+  "tax_and_charges_section",
+  "tax_category",
+  "column_break_dpeb",
+  "sales_tax_charge_templates",
+  "section_break_wkxe",
+  "tax_charges",
+  "section_break_famu",
+  "column_break_vabt",
+  "column_break_xzil",
+  "total_taxes_and_charges",
+  "section_break_qyed",
+  "column_break_uvfe",
+  "column_break_tmla",
+  "net_total",
+  "total_amount",
+  "rounded_total",
+  "total_advance",
+  "outstanding_amount",
+  "discounts_section",
+  "percent",
+  "column_break_sdul",
+  "total_discount"
+ ],
+ "fields": [
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "booking_series",
+   "fieldtype": "Select",
+   "label": "Booking Series",
+   "options": "BOOK-.NO-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_olcj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Reserved\nCompleted"
+  },
+  {
+   "fieldname": "section_break_fwmi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "label": "Customer Name",
+   "options": "Customer Registration"
+  },
+  {
+   "fieldname": "booking_type",
+   "fieldtype": "Select",
+   "label": "Booking Type",
+   "options": "\nHourly\nDaily\nWeekly\nMonthly"
+  },
+  {
+   "fieldname": "booking_date_from",
+   "fieldtype": "Datetime",
+   "label": "Date From "
+  },
+  {
+   "fieldname": "column_break_czmq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "additional_driver",
+   "fieldtype": "Link",
+   "label": "Additional Driver",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "vehicle_class",
+   "fieldtype": "Link",
+   "label": "Vehilce Class",
+   "options": "Vehicle Class"
+  },
+  {
+   "fieldname": "booking_date_to",
+   "fieldtype": "Datetime",
+   "label": "Date To"
+  },
+  {
+   "fieldname": "section_break_oyci",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Available Vehicle",
+   "link_filters": "[[\"Vehicle Registration\",\"vehicle_class\",\"=\",\"eval:doc.vehicle_class\"],[\"Vehicle Registration\",\"vehicle_status\",\"=\",\"Available\"]]",
+   "options": "Vehicle Registration"
+  },
+  {
+   "fetch_from": "vehicle.car_image",
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_umjd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "image"
+  },
+  {
+   "fieldname": "section_break_zcdk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "vehicle_rates",
+   "fieldtype": "Table",
+   "label": "Vehicle Rates",
+   "options": "Vehicle Rates",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_yzlz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval: doc.customer_name != ''",
+   "fieldname": "customer_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Customer/Driver "
+  },
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fetch_from": "customer_name.customer_name",
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.phone",
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.country",
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.city",
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.dob",
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date Of Birth",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.dl_expiry_date",
+   "fieldname": "expiration_date",
+   "fieldtype": "Date",
+   "label": "License Expiry Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_jvhr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer_name.email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email ",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.address",
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.state",
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.zip_code",
+   "fieldname": "zip_code",
+   "fieldtype": "Int",
+   "label": "Zip Code",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "customer_name.license_number",
+   "fieldname": "license_number",
+   "fieldtype": "Data",
+   "label": "DL Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "driver_details_section",
+   "fieldtype": "Section Break",
+   "label": "Driver Details"
+  },
+  {
+   "fetch_from": "additional_driver.employee_name",
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_vmyy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "additional_driver.driver_license",
+   "fieldname": "additional_license_number",
+   "fieldtype": "Data",
+   "label": "License Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qyek",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "additional_driver.license_expiry",
+   "fieldname": "expiry",
+   "fieldtype": "Date",
+   "label": "Date Of Expiry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dropoff_pickup_tab",
+   "fieldtype": "Tab Break",
+   "label": "Drop Off & Pickup"
+  },
+  {
+   "fieldname": "dropoff_section",
+   "fieldtype": "Section Break",
+   "label": "Drop Off Details"
+  },
+  {
+   "fieldname": "employee_dropoff",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "dropoff_date",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Drop Off Date"
+  },
+  {
+   "fieldname": "odometer_dropoff",
+   "fieldtype": "Int",
+   "label": "Odomerter Value at Drop Off"
+  },
+  {
+   "fieldname": "column_break_bljc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dropoff_location",
+   "fieldtype": "Data",
+   "label": "Pickup Location"
+  },
+  {
+   "fieldname": "dropoff_time",
+   "fieldtype": "Time",
+   "label": "Drop Off Time"
+  },
+  {
+   "fieldname": "fuel_dropoff",
+   "fieldtype": "Int",
+   "label": "Fuel Level at Drop Off"
+  },
+  {
+   "depends_on": "eval: doc.status == 'Completed'",
+   "fieldname": "pickup_section",
+   "fieldtype": "Section Break",
+   "label": "Pickup Details"
+  },
+  {
+   "fieldname": "pickup_employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "pickup_date",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Pickup Date"
+  },
+  {
+   "fieldname": "odometer_pickup",
+   "fieldtype": "Int",
+   "label": "Odomerter Value at Pickup"
+  },
+  {
+   "fieldname": "column_break_vodv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pickup_location",
+   "fieldtype": "Data",
+   "label": "Pickup Location"
+  },
+  {
+   "fieldname": "pickup_time",
+   "fieldtype": "Time",
+   "label": "Pickup Time"
+  },
+  {
+   "fieldname": "fuel_level_pickup",
+   "fieldtype": "Int",
+   "label": "Fuel Level at Pickup"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Reservations",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Reservations",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_zwij",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "features",
+   "fieldtype": "Table",
+   "label": "Vehicle Features",
+   "options": "Features",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Payment Details"
+  },
+  {
+   "fieldname": "car_rent",
+   "fieldtype": "Currency",
+   "label": "Car Rent",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security Deposit",
+   "options": "Company:company:default_currency"
+  },
+  {
+   "fieldname": "column_break_bdar",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insurance",
+   "fieldtype": "Currency",
+   "label": "Insurance",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2"
+  },
+  {
+   "fieldname": "payment_details",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "fine_charges",
+   "fieldtype": "Currency",
+   "label": "Fine Charges",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2"
+  },
+  {
+   "fieldname": "salik_charges",
+   "fieldtype": "Currency",
+   "label": "Salik Toll Charges",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_mglx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "damage_charges",
+   "fieldtype": "Currency",
+   "label": "Damage Charges",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2"
+  },
+  {
+   "fieldname": "extra_km_charges",
+   "fieldtype": "Currency",
+   "label": "Extra KM Charges",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2"
+  },
+  {
+   "fieldname": "section_break_qyed",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Grand Total (Company Currency)",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tmla",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tax_and_charges_section",
+   "fieldtype": "Section Break",
+   "label": "Tax and Charges"
+  },
+  {
+   "fieldname": "tax_category",
+   "fieldtype": "Link",
+   "label": "Tax Category",
+   "options": "Tax Category"
+  },
+  {
+   "fieldname": "column_break_dpeb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_tax_charge_templates",
+   "fieldtype": "Link",
+   "label": "Sales Taxes and Charges Template",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "fieldname": "section_break_wkxe",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tax_charges",
+   "fieldtype": "Table",
+   "label": "Sales Taxes and Charges",
+   "options": "Sales Taxes and Charges"
+  },
+  {
+   "fieldname": "section_break_famu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_vabt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xzil",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_taxes_and_charges",
+   "fieldtype": "Currency",
+   "label": "Total Tax and Charges",
+   "options": "Company:company:default_currency",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_uvfe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rounded_total",
+   "fieldtype": "Currency",
+   "label": "Rounded Total",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_advance",
+   "fieldtype": "Currency",
+   "label": "Total Advance",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Oustanding Amount",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_total",
+   "fieldtype": "Currency",
+   "label": "Net Total ",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "discounts_section",
+   "fieldtype": "Section Break",
+   "label": "Discounts"
+  },
+  {
+   "fieldname": "column_break_sdul",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "percent",
+   "fieldtype": "Percent",
+   "label": "Dicount Percentage",
+   "precision": "2"
+  },
+  {
+   "fieldname": "total_discount",
+   "fieldtype": "Currency",
+   "label": "Total Discounted Amount",
+   "non_negative": 1,
+   "options": "Company:company:default_currency",
+   "precision": "2",
+   "read_only": 1
+  }
+ ],
+ "image_field": "image",
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-07-18 23:16:09.767769",
+ "modified_by": "Administrator",
+ "module": "Car Rental System",
+ "name": "Reservations",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "customer_name",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

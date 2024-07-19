@@ -1,22 +1,29 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "VEH-REG-.####",
  "creation": "2024-06-22 22:36:57.000773",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "naming_series",
+  "section_break_dand",
   "column_break_uola",
+  "registration_no",
+  "column_break_vcyf",
+  "branch",
+  "column_break_ntnv",
   "vehicle_status",
   "vehicle_information_section",
-  "model_name",
-  "lisence_plate",
-  "fleet_manager",
+  "license_plate_code",
+  "vehicle_manufacturer",
+  "purchase_date",
+  "purchase_value",
   "vehicle_class",
+  "fleet_manager",
   "is_insured",
   "column_break_djje",
-  "vehicle_manufacturer",
+  "license_plate_number",
+  "model_name",
   "car_image",
   "image_preview",
   "insurance_details_section",
@@ -34,29 +41,22 @@
   "section_break_yklp",
   "purchase_details",
   "model_information_section",
-  "seat_number",
+  "model_year",
   "chasis",
   "registration_date",
-  "color",
   "column_break_vuck",
-  "door_number",
-  "model_year",
+  "color",
+  "seat_number",
   "expiry_date",
   "details_section",
-  "odometer_unit",
-  "transmission",
-  "fuel_type",
-  "emissions",
-  "horsepower",
-  "torque",
-  "column_break_feyx",
   "odometer_value",
-  "decription",
+  "fuel_type",
+  "column_break_feyx",
+  "transmission",
+  "torque",
   "depreciation_details_section",
-  "purchase_date",
   "depreciation_in_month",
   "column_break_rejj",
-  "purchase_value",
   "depreciation_value",
   "section_break_fkrn",
   "amended_from"
@@ -94,12 +94,6 @@
    "in_list_view": 1,
    "label": "Manufacturer",
    "reqd": 1
-  },
-  {
-   "fieldname": "lisence_plate",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "License Plate"
   },
   {
    "fieldname": "fleet_manager",
@@ -142,13 +136,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "2",
-   "fieldname": "door_number",
-   "fieldtype": "Int",
-   "label": "Number of Doors",
-   "non_negative": 1
-  },
-  {
    "fieldname": "model_year",
    "fieldtype": "Int",
    "label": "Model Year",
@@ -158,13 +145,6 @@
    "fieldname": "details_section",
    "fieldtype": "Section Break",
    "label": "Details"
-  },
-  {
-   "default": "KM",
-   "fieldname": "odometer_unit",
-   "fieldtype": "Select",
-   "label": "Odometer Unit",
-   "options": "KM\nMI"
   },
   {
    "default": "Manual",
@@ -181,33 +161,14 @@
    "options": "Gasoline\nDiesel\nLPG\nElectric\nHubrid"
   },
   {
-   "default": "0",
-   "fieldname": "emissions",
-   "fieldtype": "Int",
-   "label": "CO2 Emissions",
-   "non_negative": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "horsepower",
-   "fieldtype": "Int",
-   "label": "Horsepower",
-   "non_negative": 1
-  },
-  {
    "fieldname": "column_break_feyx",
    "fieldtype": "Column Break"
   },
   {
    "fieldname": "odometer_value",
    "fieldtype": "Int",
-   "label": "Odometer Value",
+   "label": "Odometer Value (KM)",
    "non_negative": 1
-  },
-  {
-   "fieldname": "decription",
-   "fieldtype": "Text Editor",
-   "label": "Description"
   },
   {
    "fieldname": "image_preview",
@@ -230,14 +191,6 @@
    "fieldname": "color",
    "fieldtype": "Data",
    "label": "Color"
-  },
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "Vehicle Registration No",
-   "no_copy": 1,
-   "options": "VEH-REG-.####",
-   "reqd": 1
   },
   {
    "fieldname": "insurance_no",
@@ -328,10 +281,10 @@
   },
   {
    "fieldname": "vehicle_class",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Vehicle Class",
    "non_negative": 1,
-   "options": "Light Weight\nHeavy Weight"
+   "options": "Vehicle Class"
   },
   {
    "default": "0",
@@ -359,7 +312,7 @@
    "fieldname": "vehicle_status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Active\nInactive\nDirty\nAvailable"
+   "options": "Available\nOn Sale\nDirty\nSold\nReturned\nOut of Service"
   },
   {
    "fieldname": "purchase_date",
@@ -379,18 +332,57 @@
    "default": "0",
    "fieldname": "torque",
    "fieldtype": "Int",
-   "label": "Torque",
+   "label": "Fuel Level",
    "non_negative": 1
+  },
+  {
+   "fieldname": "license_plate_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "License Plate Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "license_plate_number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "License Plate Number",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "registration_no",
+   "fieldtype": "Select",
+   "label": "Registration No",
+   "options": "VEH-REG-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vcyf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch"
+  },
+  {
+   "fieldname": "column_break_ntnv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_dand",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2024-07-05 18:36:28.773281",
+ "modified": "2024-07-12 16:58:28.933095",
  "modified_by": "Administrator",
  "module": "Car Rental System",
  "name": "Vehicle Registration",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -404,7 +396,6 @@
    "role": "Administrator",
    "select": 1,
    "share": 1,
-   "submit": 1,
    "write": 1
   },
   {
@@ -418,8 +409,11 @@
    "share": 1
   }
  ],
+ "search_fields": "model_name,vehicle_manufacturer",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "model_name",
  "track_changes": 1
 }
